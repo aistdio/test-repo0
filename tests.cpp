@@ -41,9 +41,30 @@ bool test_2_contains()
 
 bool test_3_contains()
 {
-  Candle candle{ -10.0, -22.0, 101.0, -20.0 }; //негативное high и положительное low
+  Candle candle{ -10.0, -22.0, 101.0, -20.0 }; //некорректные high и low
 
   return !candle.contains(100.0);
+}
+
+bool test_1_full_size()
+{
+  Candle candle{ 10.0, 20.0, 5.0, 15.0 };
+
+  return candle.full_size() == 15.0;
+}
+
+bool test_2_full_size()
+{
+  Candle candle{ 0.0, 0.0, 0.0, 0.0 };
+
+  return candle.full_size() == 0.0;
+}
+
+bool test_3_full_size()
+{
+  Candle candle{ 10.0, -20.0, 5.0, 15.0 }; //некорректные high и low
+
+  return candle.full_size() == 25.0;
 }
 
 void initTests()
@@ -54,6 +75,9 @@ void initTests()
   tests.push_back(test_1_contains);
   tests.push_back(test_2_contains);
   tests.push_back(test_3_contains);
+  tests.push_back(test_1_full_size);
+  tests.push_back(test_2_full_size);
+  tests.push_back(test_3_full_size);
 }
 
 int launchTests()
