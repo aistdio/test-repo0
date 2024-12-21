@@ -20,5 +20,9 @@ bool test_1_body_size();
 bool test_2_body_size();
 bool test_3_body_size();
 
+bool test_1_is_red();
+bool test_2_is_red();
+bool test_3_is_red();
+
 void initTests();
 int launchTests();
