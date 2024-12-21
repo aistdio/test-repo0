@@ -67,6 +67,27 @@ bool test_3_full_size()
   return candle.full_size() == 25.0;
 }
 
+bool test_1_body_size()
+{
+  Candle candle{ 10.0, 20.0, 5.0, 15.0 };
+
+  return candle.body_size() == 5.0;
+}
+
+bool test_2_body_size()
+{
+  Candle candle{ 1.0, 0.0, 0.0, 1.0 };
+
+  return candle.body_size() == 0.0;
+}
+
+bool test_3_body_size()
+{
+  Candle candle{ -10.0, -20.0, 5.0, 15.0 };
+
+  return candle.body_size() == 25.0;
+}
+
 void initTests()
 {
   tests.push_back(test_1_body_contains);
@@ -78,6 +99,9 @@ void initTests()
   tests.push_back(test_1_full_size);
   tests.push_back(test_2_full_size);
   tests.push_back(test_3_full_size);
+  tests.push_back(test_1_body_size);
+  tests.push_back(test_2_body_size);
+  tests.push_back(test_3_body_size);
 }
 
 int launchTests()
