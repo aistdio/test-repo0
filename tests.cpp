@@ -6,7 +6,7 @@ static std::vector<std::function<bool()>> tests;
 
 bool test_1_body_contains()
 {
-  Candle candle{ 15.25, 27.65, 13.25, 23.65 };
+  Candle candle{ 23.65, 27.65, 13.25, 15.25 };
 
   return candle.body_contains(23.65);
 }
@@ -20,9 +20,30 @@ bool test_2_body_contains()
 
 bool test_3_body_contains()
 {
-  Candle candle{ -30.0, -36.0, -29.0, -35.0 }; //некорректные high и low
+  Candle candle{ -30.0, -37.0, -29.0, 35.0 }; //негативный open, положительный cloe; некорректные high и low
 
-  return !candle.body_contains(-36.0);
+  return candle.body_contains(35.0);
+}
+
+bool test_1_contains()
+{
+  Candle candle{ 10.0, 20.0, 5.0, 15.0 };
+
+  return candle.contains(5.0);
+}
+
+bool test_2_contains()
+{
+  Candle candle{ 10.0, 10.0, 5.0, 5.0 }; //совпали open и high, close и low
+
+  return !candle.contains(10.01);
+}
+
+bool test_3_contains()
+{
+  Candle candle{ -10.0, -22.0, 101.0, -20.0 }; //негативное high и положительное low
+
+  return !candle.contains(100.0);
 }
 
 void initTests()
@@ -30,6 +51,9 @@ void initTests()
   tests.push_back(test_1_body_contains);
   tests.push_back(test_2_body_contains);
   tests.push_back(test_3_body_contains);
+  tests.push_back(test_1_contains);
+  tests.push_back(test_2_contains);
+  tests.push_back(test_3_contains);
 }
 
 int launchTests()
