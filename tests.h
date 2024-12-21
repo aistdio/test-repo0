@@ -4,9 +4,9 @@
 #include <functional>
 #include <iostream>
 
-bool test1();
-bool test2();
-bool test3();
+bool test_1_body_contains();
+bool test_2_body_contains();
+bool test_3_body_contains();
 
 void initTests();
 int launchTests();

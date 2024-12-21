@@ -4,36 +4,32 @@
 //массив всех тестов, который мы заполняем в функции initTests
 static std::vector<std::function<bool()>> tests;
 
-//тест 1
-bool test1()
+bool test_1_body_contains()
 {
-  //пример какого-то теста
-  return 42 == (41 + 1); //passed
+  Candle candle{ 15.25, 27.65, 13.25, 23.65 };
+
+  return candle.body_contains(23.65);
 }
 
-//тест 2
-bool test2()
+bool test_2_body_contains()
 {
-  //пример какого-то теста
-  return 42 != (41 + 1); //failed
+  Candle candle{ 0.0, 5.0, 0.0, 0.0 }; //совпали open и close
+
+  return !candle.body_contains(1.0);
 }
 
-//тест 3
-bool test3()
+bool test_3_body_contains()
 {
-  Candle candle{ 0.0, 3.0, 3.0, 3.0 };
+  Candle candle{ -30.0, -36.0, -29.0, -35.0 }; //некорректные high и low
 
-  //пример какого-то теста
-  return candle.high == 3.0;
+  return !candle.body_contains(-36.0);
 }
 
 void initTests()
 {
-  tests.push_back(test1);
-  tests.push_back(test2);
-  tests.push_back(test3);
-  //tests.push_back(test4);
-  //tests.push_back(test5);
+  tests.push_back(test_1_body_contains);
+  tests.push_back(test_2_body_contains);
+  tests.push_back(test_3_body_contains);
 }
 
 int launchTests()
