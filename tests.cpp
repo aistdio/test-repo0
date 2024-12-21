@@ -55,7 +55,7 @@ bool test_1_full_size()
 
 bool test_2_full_size()
 {
-  Candle candle{ 0.0, 0.0, 0.0, 0.0 };
+  Candle candle{ 0.0, 0.0, 0.0, 0.0 }; //все значения совпадают
 
   return candle.full_size() == 0.0;
 }
@@ -76,56 +76,56 @@ bool test_1_body_size()
 
 bool test_2_body_size()
 {
-  Candle candle{ 1.0, 0.0, 0.0, 1.0 };
+  Candle candle{ 1.0, 0.0, 0.0, 1.0 }; //open и close совпадают
 
   return candle.body_size() == 0.0;
 }
 
 bool test_3_body_size()
 {
-  Candle candle{ -10.0, -20.0, 5.0, 15.0 };
+  Candle candle{ -10.0, -20.0, 5.0, 15.0 }; //негативный open и положительный close
 
   return candle.body_size() == 25.0;
 }
 
 bool test_1_is_red()
 {
-  Candle candle{ 10.0, 20.0, -5.0, -15.0 };
+  Candle candle{ 10.0, 20.0, -5.0, -15.0 }; //положительный open, негативный close
 
   return candle.is_red();
 }
 
 bool test_2_is_red()
 {
-  Candle candle{ 10.0, 10.0, 10.0, 10.0 };
+  Candle candle{ 10.0, 10.0, 10.0, 10.0 }; //все значения совпадают
 
   return !candle.is_red();
 }
 
 bool test_3_is_red()
 {
-  Candle candle{ -10.0, -20.0, 5.0, 15.0 };
+  Candle candle{ -10.0, -20.0, 5.0, 15.0 }; //негативный open и положительный close
 
   return !candle.is_red();
 }
 
 bool test_1_is_green()
 {
-  Candle candle{ 10.0, 20.0, -5.0, -15.0 }; // далее те же тестовые параметры, что и у is_red
+  Candle candle{ 10.0, 20.0, -5.0, -15.0 }; //положительный open, негативный close
 
   return !candle.is_green();
 }
 
 bool test_2_is_green()
 {
-  Candle candle{ 10.0, 10.0, 10.0, 10.0 };
+  Candle candle{ 10.0, 10.0, 10.0, 10.0 }; //все значения совпадают
 
   return !candle.is_green();
 }
 
 bool test_3_is_green()
 {
-  Candle candle{ -10.0, -20.0, 5.0, 15.0 };
+  Candle candle{ -10.0, -20.0, 5.0, 15.0 }; //негативный open и положительный close
 
   return candle.is_green();
 }
