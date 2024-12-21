@@ -24,5 +24,9 @@ bool test_1_is_red();
 bool test_2_is_red();
 bool test_3_is_red();
 
+bool test_1_is_green();
+bool test_2_is_green();
+bool test_3_is_green();
+
 void initTests();
 int launchTests();

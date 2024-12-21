@@ -109,6 +109,27 @@ bool test_3_is_red()
   return !candle.is_red();
 }
 
+bool test_1_is_green()
+{
+  Candle candle{ 10.0, 20.0, -5.0, -15.0 }; // далее те же тестовые параметры, что и у is_red
+
+  return !candle.is_green();
+}
+
+bool test_2_is_green()
+{
+  Candle candle{ 10.0, 10.0, 10.0, 10.0 };
+
+  return !candle.is_green();
+}
+
+bool test_3_is_green()
+{
+  Candle candle{ -10.0, -20.0, 5.0, 15.0 };
+
+  return candle.is_green();
+}
+
 void initTests()
 {
   tests.push_back(test_1_body_contains);
@@ -126,6 +147,9 @@ void initTests()
   tests.push_back(test_1_is_red);
   tests.push_back(test_2_is_red);
   tests.push_back(test_3_is_red);
+  tests.push_back(test_1_is_green);
+  tests.push_back(test_2_is_green);
+  tests.push_back(test_3_is_green);
 }
 
 int launchTests()
